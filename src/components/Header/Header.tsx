@@ -1,45 +1,48 @@
 import React from 'react';
-import { ShoppingCart, Search, Menu, ChevronDown } from 'lucide-react';
+import { ShoppingCart, Search, Menu, ChevronDown, Globe } from 'lucide-react';
 import './Header.css';
-// 1. Импортируем Link
 import { Link } from "react-router-dom";
+import { useLanguage } from '../../context/LanguageContext';
 
 const Header = () => {
+  const { t, language, setLanguage } = useLanguage();
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'ru' ? 'en' : 'ru');
+  };
+
   return (
     <header className="header-wrapper">
       <div className="header-container">
-        
         <div style={{ width: '40px' }}></div>
-
         <nav className="header-nav">
-          {/* 2. Заменили <a> на <Link to="/"> для Главной */}
           <Link to="/" className="nav-link active">
-            ГЛАВНАЯ <ChevronDown size={12} strokeWidth={3} />
+            {t('header.home')} <ChevronDown size={12} strokeWidth={3} />
           </Link>
-          
           <a href="#" className="nav-link">
-            СТРАНИЦЫ <ChevronDown size={12} strokeWidth={3} />
+            {t('header.pages')} <ChevronDown size={12} strokeWidth={3} />
           </a>
-          
           <a href="#" className="nav-link">
-            БЛОГ <ChevronDown size={12} strokeWidth={3} />
+            {t('header.blog')} <ChevronDown size={12} strokeWidth={3} />
           </a>
-          
-          {/* 3. Заменили <a> на <Link to="/portfolio"> для Портфолио */}
           <Link to="/portfolio" className="nav-link">
-            ПОРТФОЛИО <ChevronDown size={12} strokeWidth={3} />
+            {t('header.portfolio')} <ChevronDown size={12} strokeWidth={3} />
           </Link>
-          
           <a href="#" className="nav-link">
-            МАГАЗИН <ChevronDown size={12} strokeWidth={3} />
+            {t('header.shop')} <ChevronDown size={12} strokeWidth={3} />
           </a>
-          
           <a href="#" className="nav-link" style={{ gap: 0 }}>
-            КОНТАКТЫ
+            {t('header.contacts')}
           </a>
         </nav>
-
         <div className="header-actions">
+          {/* Кнопка смены языка */}
+          <button 
+            onClick={toggleLanguage} 
+            className="flex items-center gap-1 font-bold bg-gray-100 px-3 py-1 rounded-full hover:bg-gray-200 transition text-black text-sm mr-2"
+          >
+            <Globe size={16} /> {language.toUpperCase()}
+          </button>
           <button className="cart-btn">
             <ShoppingCart size={20} />
             <span className="cart-badge">0</span>
@@ -55,5 +58,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;

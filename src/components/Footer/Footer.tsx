@@ -1,8 +1,13 @@
 import React from 'react';
 import { Phone } from 'lucide-react';
 import './Footer.css';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  const col1 = t<string[]>('footer.col1');
+  const col2 = t<string[]>('footer.col2');
+
   return (
     <footer className="footer-section">
       <div className="footer-container">
@@ -10,45 +15,41 @@ const Footer = () => {
         <div className="footer-top">
           <div className="footer-info">
             <p className="footer-desc">
-              Ваш надежный партнер в мире цифровых технологий. Мы стремимся превзойти ожидания в каждом нашем проекте.
+              {t('footer.desc')}
             </p>
             <button className="footer-phone-btn">
               <Phone size={14} strokeWidth={2.5} />
               (973) 068 2300
             </button>
           </div>
-
+          
           <div className="footer-links-box">
-            <h4 className="footer-links-title">Быстрые Ссылки</h4>
+            <h4 className="footer-links-title">{t('footer.linksTitle')}</h4>
             <div className="footer-links-grid">
               <div className="footer-links-col">
-                <a href="#" className="footer-link">О Нас</a>
-                <a href="#" className="footer-link">Тарифы</a>
-                <a href="#" className="footer-link">Контакты</a>
-                <a href="#" className="footer-link">Наша Команда</a>
-                <a href="#" className="footer-link">Новости</a>
+                {col1.map((link, i) => (
+                  <a key={i} href="#" className="footer-link">{link}</a>
+                ))}
               </div>
               <div className="footer-links-col">
-                <a href="#" className="footer-link">Кейсы</a>
-                <a href="#" className="footer-link">Частые Вопросы</a>
-                <a href="#" className="footer-link">Услуги</a>
-                <a href="#" className="footer-link">Поддержка</a>
+                {col2.map((link, i) => (
+                  <a key={i} href="#" className="footer-link">{link}</a>
+                ))}
               </div>
             </div>
           </div>
         </div>
-
+        
         <div className="footer-bottom">
-          <p>© 2026 Агентство Все Права Защищены</p>
+          <p>{t('footer.copyright')}</p>
           <div className="footer-legal">
-            <a href="#">Пользовательское Соглашение</a>
-            <a href="#">Политика Конфиденциальности</a>
+            <a href="#">{t('footer.terms')}</a>
+            <a href="#">{t('footer.privacy')}</a>
           </div>
         </div>
-
+        
       </div>
     </footer>
   );
 };
-
 export default Footer;

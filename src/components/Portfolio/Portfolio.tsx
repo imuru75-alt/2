@@ -3,15 +3,19 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import portfolioImg from '../../assets/Portfolio/portfolioImg.svg'; 
 import crossIcon from '../../assets/Portfolio/portfolio-cross.svg'; 
 import './Protfolio.css';
+import { useLanguage } from '../../context/LanguageContext';
 
-const portfolioItems = [
-  { num: '01.', title: 'Веб и Мобильная Разработка', active: false },
-  { num: '02.', title: 'Интерактивный Дизайн', active: true, img: portfolioImg },
-  { num: '03.', title: 'Цифровой Маркетинг', active: false },
-  { num: '04.', title: 'Брендинг и Стратегия', active: false },
+const portfolioBase = [
+  { num: '01.', active: false },
+  { num: '02.', active: true, img: portfolioImg },
+  { num: '03.', active: false },
+  { num: '04.', active: false },
 ];
 
 const Portfolio = () => {
+  const { t } = useLanguage();
+  const items = t<string[]>('portfolio.items');
+
   return (
     <section className="portfolio-section">
       
@@ -31,25 +35,25 @@ const Portfolio = () => {
           </div>
 
           <div className="portfolio-title-box">
-            <span className="section-subtitle">Портфолио</span>
+            <span className="section-subtitle">{t('portfolio.subtitle')}</span>
             <h2 className="portfolio-title">
-              Мы создаем решения, которые объединяют, поддерживают и вдохновляют
+              {t('portfolio.title')}
             </h2>
           </div>
 
           <div className="portfolio-desc-box">
             <p className="portfolio-desc">
-              Ознакомьтесь с нашими лучшими кейсами, где дизайн встречается с передовыми технологиями для достижения бизнес-целей.
+              {t('portfolio.desc')}
             </p>
             <div className="portfolio-view-btn group">
               <div className="portfolio-view-bg"></div>
-              <span className="portfolio-view-text">Смотреть всё портфолио</span>
+              <span className="portfolio-view-text">{t('portfolio.btn')}</span>
             </div>
           </div>
         </div>
 
         <div className="portfolio-list">
-          {portfolioItems.map((item, index) => (
+          {portfolioBase.map((item, index) => (
             <div 
               key={index} 
               className={`portfolio-item group ${item.active ? 'active' : 'inactive'}`}
@@ -57,7 +61,7 @@ const Portfolio = () => {
               
               <div className="portfolio-item-left">
                 <span className="portfolio-num">{item.num}</span>
-                <h3 className="portfolio-item-title">{item.title}</h3>
+                <h3 className="portfolio-item-title">{items[index]}</h3>
               </div>
               
               <div className="portfolio-item-icon">
@@ -69,12 +73,12 @@ const Portfolio = () => {
               </div>
 
               {item.active && item.img && (
-  <img loading="lazy" 
-    src={item.img} 
-    alt={item.title} 
-    className="portfolio-hover-img" 
-  />
-)}
+                <img loading="lazy" 
+                  src={item.img} 
+                  alt={items[index]} 
+                  className="portfolio-hover-img" 
+                />
+              )}
 
             </div>
           ))}
