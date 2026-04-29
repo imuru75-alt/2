@@ -1,73 +1,17 @@
-# React + TypeScript + Vite
+🌍 Мультиязычность (i18n) для корпоративного сайтаВ данном проекте реализована полноценная поддержка двух языков (Русский и Английский) с использованием современных стандартов React и TypeScript. Хардкод (статичный текст) полностью удален из компонентов интерфейса.🚀 Что было сделаноРазделение логики и представления: Весь текстовый контент вынесен из JSX-компонентов в строго типизированные словари.React Context API: Создан глобальный провайдер состояния для мгновенного переключения языка без перезагрузки страницы.Сохранение состояния: Выбранный язык кэшируется в браузере (localStorage). При повторном заходе на сайт пользователь увидит тот язык, который он выбрал в прошлый раз.Строгая типизация (TypeScript): Отсутствие типа any. Все функции перевода, массивы данных (посты блога, отзывы, услуги) строго типизированы через интерфейсы и дженерики.📁 Структура новых директорий и файловВ проект были добавлены следующие новые директории и файлы:src/context/LanguageContext.tsxЯдро мультиязычности. Здесь находится LanguageProvider и пользовательский хук useLanguage. Файл отвечает за чтение/запись в localStorage и содержит функцию t(), которая рекурсивно ищет нужный перевод по ключу (например, t('hero.title1')).src/locales/ru.tsСловарь с русским текстом.src/locales/en.tsСловарь с английским текстом.🔄 Какие файлы были измененыsrc/App.tsxВсё приложение (роутер и компоненты) обернуто в <LanguageProvider>, чтобы каждый компонент имел доступ к глобальному состоянию языка.src/components/Header/Header.tsxДобавлена кнопка-переключатель (с иконкой глобуса) для смены языка (EN / RU).Компоненты секций (Hero, AboutUs, Services, Portfolio, Team, Testimonials, Blog, CTA, Footer)Статичный текст удален.Добавлен импорт хука const { t } = useLanguage();.Тексты заменены на вызовы функции перевода (например, {t('about.btn')}).Добавлены локальные интерфейсы для итерации по массивам данных (например, interface BlogPost, interface ServiceText).💻 Как это работает (Пример)Вместо того чтобы писать текст напрямую:// ❌ До (Хардкод)
+<h1 className="hero-title">Цифровые Решения</h1>
+Мы используем хук перевода:// ✅ После (i18n)
+import { useLanguage } from '../../context/LanguageContext';
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+const Hero = () => {
+  const { t } = useLanguage();
+  return (
+    <h1 className="hero-title">{t('hero.title1')} {t('hero.title2')}</h1>
+  );
+};
+🛠 Запуск проектаУбедитесь, что у вас установлены все зависимости:npm install
+# или
+yarn install
+Для локального запуска сервера разработки:npm run dev
+# или
+yarn dev
