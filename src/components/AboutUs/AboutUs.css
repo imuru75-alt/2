@@ -1,0 +1,153 @@
+@reference "tailwindcss";
+
+/* === ABOUT US (100% Tailwind CSS) === */
+.about-section {
+  /* 
+    bg-[#111] = background-color: #111
+    py-16 = padding-top/bottom 64px 
+  */
+  @apply relative overflow-hidden text-white bg-[#111] py-16;
+}
+
+.about-container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+/* маленький подзаголовок */
+.section-subtitle {
+  /* text-[10px] tracking-[0.2em] = font-size 10px, letter-spacing: 0.2em */
+  @apply font-bold uppercase mb-3 block text-gray-500 text-[10px] tracking-[0.2em];
+}
+
+/* заголовок + вступление */
+.about-header {
+  /* mb-6 = margin-bottom 24px, max-w-screen-md = 768px */
+  @apply text-left mb-6 max-w-screen-md;
+}
+
+.about-title {
+  /* 
+    text-2xl md:text-4xl = 24px -> 36px (с медиа-запросом)
+    leading-tight = 1.25
+  */
+  @apply font-bold text-left text-2xl md:text-4xl leading-tight;
+}
+
+/* сетка из двух колонок */
+.about-grid {
+  /* grid-cols-1 lg:grid-cols-2 = сетка 1 колонка, на десктопе 2 */
+  @apply grid items-start grid-cols-1 lg:grid-cols-2 gap-16;
+}
+
+/* левая часть с картинкой и статистикой */
+.about-left {
+  /* mt-8 mb-16 lg:mb-0 = margin-top 32px, margin-bottom 64px -> 0 на десктопе */
+  @apply relative mt-8 mb-16 lg:mb-0;
+}
+
+.about-spiral {
+  /* -top-[68px] -right-16 = top: -68px, right: -64px */
+  @apply absolute -top-[68px] -right-16 z-0;
+}
+
+.about-spiral img {
+  /* w-36 md:w-44 = 144px -> 176px */
+  @apply w-36 md:w-44;
+}
+
+.about-circle {
+  /* -bottom-8 -left-8 = bottom: -32px, left: -32px */
+  @apply absolute -bottom-8 -left-8 z-20;
+}
+
+.about-circle img {
+  /* w-16 md:w-20 = 64px -> 80px */
+  @apply w-16 md:w-20;
+}
+
+.about-img-box {
+  /* aspect-[4/3] bg-gray-800 = aspect-ratio 4/3, background #1f2937 */
+  @apply relative overflow-hidden z-10 w-full aspect-[4/3] bg-gray-800;
+}
+
+.about-img {
+  /* grayscale opacity-90 = filter: grayscale(100%), opacity: 0.9 */
+  @apply w-full h-full object-cover grayscale opacity-90;
+}
+
+/* кнопка "Узнать больше" */
+/* Было: md:-right-[240px] z-40 group; */
+/* Стало: */
+.about-learn-btn {
+  @apply absolute flex items-center cursor-pointer bottom-[110px] -right-[30px] md:bottom-[140px] md:-right-[240px] z-40;
+}
+
+
+.about-learn-bg {
+  /*
+    -left-4 = -16px, w-12 h-12 = 48px
+    bg-white/10 = rgba(255, 255, 255, 0.1)
+    group-hover:bg-[#eebb7c]/80 = hover цвет (используем group-hover для наведения на родителя)
+  */
+  @apply rounded-full absolute -left-4 w-12 h-12 bg-white/10 transition-colors duration-300 group-hover:bg-[#eebb7c]/80;
+}
+
+.about-learn-text {
+  /* text-xs tracking-[0.2em] = 12px, letter-spacing 0.2em */
+  @apply relative font-bold uppercase text-white text-xs tracking-[0.2em] whitespace-nowrap;
+}
+
+/* серый блок со статистикой */
+.about-stats {
+  /* 
+    -bottom-10 -right-12 = -40px, -48px
+    p-8 w-[280px] md:-right-[208px] md:p-10 md:w-[360px] = отступы и размеры с медиа-запросами
+    shadow-2xl = box-shadow
+  */
+  @apply absolute bg-[#222] shadow-2xl -bottom-10 -right-12 z-30 p-8 w-[280px] md:-right-[208px] md:p-10 md:w-[360px];
+}
+
+.about-stats-flex {
+  /* px-2 = padding-left/right 8px */
+  @apply flex justify-between items-center px-2;
+}
+
+.about-stat-item {
+  @apply text-center;
+}
+
+.about-stat-num {
+  /* text-3xl md:text-4xl mb-1 = 30px -> 36px, margin-bottom 4px */
+  @apply font-bold text-white text-3xl md:text-4xl mb-1;
+}
+
+.about-stat-desc {
+  /* text-xs font-medium = 12px, font-weight 500 */
+  @apply text-gray-400 text-xs font-medium;
+}
+
+/* правая текстовая колонка */
+.about-right {
+  /* pl-0 pt-8 lg:pl-8 = padding-left 0 -> 32px, padding-top 32px */
+  @apply relative pl-0 pt-8 lg:pl-8;
+}
+
+.about-logo-outline {
+  /* -top-24 right-[140px] = top: -96px, right: 140px */
+  @apply absolute -top-24 right-[140px] pointer-events-none;
+}
+
+.about-logo-outline img {
+  /* w-16 md:w-20 = 64px -> 80px */
+  @apply w-16 md:w-20;
+}
+
+.about-text-content {
+  /* text-sm leading-relaxed max-w-[360px] = 14px, line-height 1.625, 360px */
+  @apply relative text-left text-gray-400 text-sm leading-relaxed max-w-[360px] z-10;
+}
+
+.about-text-content p {
+  /* mb-6 = margin-bottom 24px */
+  @apply mb-6;
+}

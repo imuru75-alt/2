@@ -1,0 +1,147 @@
+@reference "tailwindcss";
+
+/* === PORTFOLIO (100% Tailwind CSS) === */
+.portfolio-section {
+  /* bg-[#111] py-24 = background-color: #111; padding-top/bottom 96px */
+  @apply relative overflow-hidden text-white bg-[#111] py-24;
+}
+
+/* фоновые вертикальные линии */
+.bg-grid-lines {
+  @apply absolute inset-0 max-w-7xl mx-auto pointer-events-none z-0;
+}
+
+.bg-grid-flex {
+  /* px-[20%] = padding-left/right 20% */
+  @apply w-full h-full flex justify-between px-[20%];
+}
+
+.bg-line {
+  /* border-r border-gray-800/30 = border-right rgba(31, 41, 55, 0.3) */
+  @apply h-full w-[1px] border-r border-gray-800/30;
+}
+
+/* основной контейнер */
+.portfolio-container {
+  @apply max-w-7xl mx-auto px-6 relative z-10;
+}
+
+/* шапка секции */
+.portfolio-header-flex {
+  /* flex-col lg:flex-row mb-20 = flex-direction, margin-bottom 80px */
+  @apply flex flex-col lg:flex-row justify-between items-start relative mb-20;
+}
+
+.portfolio-cross {
+  /* hidden lg:block = media query, top-20 right-0 = top 80px, right 0 */
+  @apply absolute top-20 right-0 hidden lg:block opacity-100;
+}
+
+.portfolio-cross img {
+  /* w-14 h-14 = 56px */
+  @apply w-14 h-14;
+}
+
+.portfolio-title-box {
+  /* max-w-[550px] */
+  @apply max-w-[550px];
+}
+
+.portfolio-title {
+  /* 
+    text-4xl md:text-5xl = 36px -> 44px (примерно)
+    leading-[1.2] tracking-tight = line-height 1.2, letter-spacing -0.025em 
+  */
+  @apply font-bold text-4xl md:text-[44px] leading-[1.2] tracking-tight;
+}
+
+/* правый текст и кнопка */
+.portfolio-desc-box {
+  /* lg:absolute lg:top-0 lg:right-[120px] lg:mt-3 = медиа-запрос 1024px */
+  @apply flex flex-col items-start max-w-[480px] mt-8 pr-8 lg:absolute lg:top-0 lg:right-[120px] lg:mt-3;
+}
+
+.portfolio-desc {
+  /* text-sm leading-[1.3] mb-6 = 14px, 1.3, 24px */
+  @apply text-gray-400 text-left text-sm leading-[1.3] mb-6;
+}
+
+.portfolio-view-btn {
+  /* ml-2 mt-6 = 8px, 24px */
+  @apply relative flex items-center cursor-pointer ml-2 mt-6;
+}
+
+.portfolio-view-bg {
+  /* 
+    -left-2 w-12 h-12 = -8px, 48px
+    bg-white/10 = rgba(255, 255, 255, 0.1)
+    group-hover:bg-[#eebb7c]/20 = rgba(238, 187, 124, 0.2)
+  */
+  @apply rounded-full absolute -left-2 w-12 h-12 bg-white/10 transition-colors duration-300 group-hover:bg-[#eebb7c]/20;
+}
+
+.portfolio-view-text {
+  /* text-base tracking-[0.2em] ml-2 = 16px, 0.2em, 8px */
+  @apply relative font-bold uppercase text-white text-base tracking-[0.2em] ml-2 transition-colors duration-200 group-hover:text-[#eebb7c];
+}
+
+/* список строк */
+.portfolio-list {
+  /* border-t border-gray-800/50 = rgba(31, 41, 55, 0.5) */
+  @apply flex flex-col border-t border-gray-800/50;
+}
+
+.portfolio-item {
+  /* py-10 border-b border-gray-800/50 = padding-top/bottom 40px, border-bottom */
+  @apply relative flex items-center justify-between cursor-pointer py-10 border-b border-gray-800/50 transition-colors duration-200 hover:bg-white/5;
+}
+
+.portfolio-item.active {
+  @apply text-white;
+}
+
+.portfolio-item.inactive {
+  @apply text-gray-300;
+}
+
+.portfolio-item-left {
+  /* gap-4 md:gap-8 pl-2 pt-2 = 16px -> 32px, 8px, 8px */
+  @apply flex items-start gap-4 md:gap-8 pl-2 pt-2;
+}
+
+.portfolio-num {
+  /* text-sm font-medium w-8 -top-4 = 14px, 500, 32px, -16px */
+  @apply text-gray-500 text-sm font-medium w-8 relative -top-4;
+}
+
+.portfolio-item-title {
+  /* text-3xl md:text-[42px] leading-none tracking-tight = 30px -> 42px, 1, -0.025em */
+  @apply font-bold text-3xl md:text-[42px] tracking-tight leading-none;
+}
+
+/* стрелки справа */
+.portfolio-item-icon {
+  /* pr-2 = 8px */
+  @apply flex items-center pr-2;
+}
+
+.portfolio-arrow-active {
+  /* w-8 h-8 md:w-10 md:h-10 = 32px -> 40px */
+  @apply text-[#eebb7c] w-8 h-8 md:w-10 md:h-10 transition-transform duration-200 group-hover:scale-110;
+}
+
+.portfolio-arrow-inactive {
+  /* w-6 h-6 md:w-8 md:h-8 = 24px -> 32px */
+  @apply text-white w-6 h-6 md:w-8 md:h-8 transition-transform duration-200 group-hover:translate-x-2;
+}
+
+/* блок с картинкой справа */
+.portfolio-hover-img {
+  /* right-[160px] top-1/2 -translate-y-1/2 hidden md:block drop-shadow-2xl = медиа-запрос и тени */
+  @apply absolute right-[160px] top-1/2 -translate-y-1/2 z-20 hidden md:block pointer-events-none drop-shadow-2xl;
+}
+
+.portfolio-hover-img img {
+  /* w-[320px] = 320px */
+  @apply w-[320px] h-auto object-cover opacity-100 transition-opacity duration-300;
+}

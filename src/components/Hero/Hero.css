@@ -1,0 +1,143 @@
+@reference "tailwindcss";
+
+/* === HERO (100% Tailwind CSS) === */
+
+.hero-section {
+  @apply relative w-full overflow-hidden;
+}
+
+/* контейнер */
+.hero-container {
+  /* grid-cols-1 lg:grid-cols-2 заменяют твои медиа-запросы */
+  @apply max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 pt-20 pb-16 relative z-10;
+}
+
+/* левая колонка */
+.hero-left-col {
+  @apply relative flex flex-col;
+}
+
+/* декоративный элемент сверху слева */
+.hero-deco-top {
+  /* opacity-40 = opacity: 0.4 */
+  @apply absolute -top-20 left-0 opacity-40;
+}
+
+/* заголовок */
+.hero-title {
+  /* 
+    text-[60px] lg:text-[100px] xl:text-[120px] = медиа-запросы для шрифта
+    leading-[1.05] = line-height
+    tracking-tight = letter-spacing
+  */
+  @apply font-medium mb-8 tracking-tight text-white leading-[1.05] text-[60px] lg:text-[100px] xl:text-[120px];
+}
+
+/* абзац + скролл */
+.hero-subtitle-box {
+  @apply relative;
+}
+
+.hero-subtitle {
+  /* max-w-[380px] = точная ширина */
+  @apply text-gray-400 text-base leading-relaxed mb-12 max-w-[380px];
+}
+
+.hero-scroll-btn {
+  @apply flex justify-center relative max-w-[380px];
+}
+
+.hero-scroll-text {
+  /* 
+    text-[11px] tracking-[0.3em] = размер и интервал
+    -rotate-90 origin-center = поворот
+    whitespace-nowrap = не переносить текст
+  */
+  @apply block font-bold uppercase text-[11px] tracking-[0.3em] -rotate-90 origin-center whitespace-nowrap;
+}
+
+.hero-scroll-shape {
+  /* top-6 = 24px, ml-16 = 64px, w-12 = 48px, opacity-80 = 0.8 */
+  @apply absolute left-1/2 top-6 ml-16 w-12 opacity-80;
+}
+
+/* правая часть */
+.hero-right-col {
+  /* hidden lg:flex = display: none -> display: flex на 1024px */
+  @apply relative hidden lg:flex items-start justify-end;
+}
+
+.hero-right-card {
+  /* max-w-[600px] bg-[#1a1a1a] = точная ширина и цвет */
+  @apply relative w-full flex flex-col max-w-[600px] bg-[#1a1a1a];
+}
+
+.hero-card-top {
+  /* flex-1 = flex: 1 1 0% */
+  @apply flex relative flex-1;
+}
+
+.hero-image-wrapper {
+  /* w-[65%] h-full = 65% ширины, 100% высоты */
+  @apply relative w-[65%] h-full;
+}
+
+.hero-image {
+  /* opacity-90 = 0.9 */
+  @apply w-full h-full object-cover opacity-90;
+}
+
+.hero-play-btn {
+  /* 
+    -left-16 = -64px
+    top-1/2 -translate-y-1/2 = центрирование по Y
+    z-20 = z-index
+    transition-transform duration-150 = транзиции
+    hover:scale-105 = ховер (Tailwind сам совместит scale и translate)
+  */
+  @apply absolute cursor-pointer -left-16 top-1/2 -translate-y-1/2 z-20 transition-transform duration-150 hover:scale-105;
+}
+
+/* правая колонка — статистика */
+.hero-stats-wrapper {
+  /* pl-6 = 24px, pr-3 = 12px, gap-6 = 24px */
+  @apply flex flex-col justify-center flex-1 pl-6 pr-3 gap-6;
+}
+
+.hero-stat-num {
+  /* text-3xl xl:text-4xl = 30px -> 36px */
+  @apply font-bold text-3xl xl:text-4xl;
+}
+
+.hero-stat-desc {
+  /* mt-1 = 4px */
+  @apply text-gray-400 text-[10px] mt-1;
+}
+
+/* нижний блок с аватарками */
+.hero-card-bottom {
+  /* 
+    h-16 = 64px, px-6 = 24px
+    border-t border-gray-800/50 = верхняя рамка rgba(31, 41, 55, 0.5) 
+  */
+  @apply flex items-center h-16 px-6 border-t border-gray-800/50;
+}
+
+.hero-bottom-group {
+  @apply flex items-center gap-3;
+}
+
+.hero-group-img {
+  /* w-24 = 96px */
+  @apply object-contain w-24 h-auto;
+}
+
+.hero-group-title {
+  /* text-sm = 14px */
+  @apply font-bold text-sm;
+}
+
+.hero-group-desc {
+  /* mt-0.5 = 2px */
+  @apply text-gray-400 text-[10px] mt-0.5;
+}

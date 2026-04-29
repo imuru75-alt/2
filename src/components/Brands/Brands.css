@@ -1,0 +1,43 @@
+@reference "tailwindcss";
+
+/* === BRANDS (100% Tailwind CSS) === */
+.brands-section {
+  /* 
+    bg-[#111] = background-color
+    border-t = border-top: 1px solid
+    border-gray-800/20 = rgba(31, 41, 55, 0.2)
+  */
+  @apply py-12 bg-[#111] border-t border-gray-800/20;
+}
+
+.brands-container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+.brands-flex {
+  /*
+    gap-12 md:gap-20 = gap: 48px -> 80px
+    grayscale hover:grayscale-0 = фильтр черно-белый, при наведении цветной
+    transition-all duration-500 = плавность 0.5s
+  */
+  @apply flex flex-wrap items-center justify-center gap-12 md:gap-20 grayscale hover:grayscale-0 transition-all duration-500 opacity-100;
+}
+
+.brand-img {
+  /* 
+    h-8 = height: 32px
+    w-auto = width: auto
+    transition-transform hover:scale-110 = увеличение при наведении (scale(1.1))
+  */
+  @apply object-contain cursor-pointer transition-transform h-8 w-auto hover:scale-110;
+}
+
+.brand-img-lg {
+  /* h-10 = height: 40px */
+  @apply h-10;
+}
+
+.brand-img-sm {
+  /* h-7 = height: 28px */
+  @apply h-7;
+}

@@ -1,0 +1,75 @@
+@reference "tailwindcss";
+
+/* === FOOTER (100% Tailwind CSS) === */
+.footer-section {
+  /* bg-[#151515] py-20 pb-8 = background-color, padding-top 80px, padding-bottom 32px */
+  @apply relative bg-[#151515] pt-20 pb-8;
+}
+
+.footer-container {
+  /* px-6 lg:px-20 = padding-left/right 24px -> 80px */
+  @apply max-w-7xl mx-auto px-6 lg:px-20 relative z-10;
+}
+
+/* верхняя часть: слева описание, справа ссылки */
+.footer-top {
+  /* flex-col lg:flex-row gap-16 mb-20 = flex-direction, gap 64px, margin-bottom 80px */
+  @apply flex flex-col lg:flex-row justify-between gap-16 mb-20;
+}
+
+.footer-info {
+  /* max-w-[220px] */
+  @apply max-w-[220px];
+}
+
+.footer-desc {
+  /* text-[#a0a0a0] text-[13px] leading-[1.4] mb-8 = color, font-size, line-height, margin-bottom 32px */
+  @apply text-[#a0a0a0] text-[13px] leading-[1.4] mb-8;
+}
+
+.footer-phone-btn {
+  /* gap-3 px-6 py-2.5 text-xs font-semibold = gap 12px, padding 24/10px, 12px, 600 */
+  @apply inline-flex items-center bg-[#eebb7c] text-black gap-3 px-6 py-2.5 text-xs font-semibold transition-colors duration-200 border-none cursor-pointer hover:bg-[#dcb17a];
+}
+
+/* блок ссылок */
+.footer-links-box {
+  /* w-full lg:w-[450px] = 100% -> 450px */
+  @apply w-full lg:w-[450px];
+}
+
+.footer-links-title {
+  /* text-lg mb-8 = 18px, 32px */
+  @apply text-white font-bold uppercase text-lg mb-8;
+}
+
+.footer-links-grid {
+  /* grid-cols-2 gap-x-8 gap-y-4 = repeat(2, 1fr), column-gap 32px, row-gap 16px */
+  @apply grid grid-cols-2 gap-x-8 gap-y-4;
+}
+
+.footer-links-col {
+  /* gap-2 = 8px */
+  @apply flex flex-col gap-2;
+}
+
+.footer-link {
+  /* text-[13px] text-[#a0a0a0] hover:text-[#eebb7c] */
+  @apply no-underline text-[#a0a0a0] text-[13px] transition-colors duration-200 hover:text-[#eebb7c];
+}
+
+/* низ футера */
+.footer-bottom {
+  /* flex-col md:flex-row pt-8 border-t border-gray-800/60 = margin/padding, border top rgba(31, 41, 55, 0.6) */
+  @apply flex flex-col md:flex-row items-center justify-between pt-8 border-t border-gray-800/60 text-[#888] text-[13px];
+}
+
+.footer-legal {
+  /* gap-8 mt-4 md:mt-0 = gap 32px, margin-top 16px -> 0 */
+  @apply flex gap-8 mt-4 md:mt-0;
+}
+
+.footer-legal a {
+  /* text-[#888] hover:text-white */
+  @apply no-underline text-[#888] transition-colors duration-200 hover:text-white;
+}

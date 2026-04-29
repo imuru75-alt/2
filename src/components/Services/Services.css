@@ -1,0 +1,68 @@
+@reference "tailwindcss";
+
+/* === SERVICES (100% Tailwind CSS) === */
+.services-section {
+  /* 
+    bg-[#151515] = background-color
+    py-20 = padding-top & bottom 80px 
+    border-t border-gray-800/30 = border top rgba(31, 41, 55, 0.3)
+  */
+  @apply text-white bg-[#151515] py-20 border-t border-gray-800/30;
+}
+
+.services-container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+.services-grid {
+  /* 
+    grid-cols-1 md:grid-cols-2 lg:grid-cols-3 = заменяют все три твоих медиа-запроса
+    gap-y-20 = row-gap: 80px
+    gap-x-16 = column-gap: 64px
+  */
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-16;
+}
+
+.service-card {
+  @apply flex flex-col;
+}
+
+.service-header {
+  /* mb-8 = margin-bottom: 32px, gap-0 = gap: 0 */
+  @apply flex items-center gap-0 mb-8;
+}
+
+.service-icon {
+  /* w-16 h-16 = 64px, -mr-2 = margin-right: -8px */
+  @apply w-16 h-16 -mr-2;
+}
+
+.service-title-img {
+  /* h-28 = height: 112px */
+  @apply w-auto h-28;
+}
+
+.service-desc {
+  /* 
+    text-sm = font-size: 14px
+    leading-relaxed = line-height: 1.625
+    mb-6 = margin-bottom: 24px
+    max-w-[300px] = точная максимальная ширина 
+  */
+  @apply text-gray-400 text-sm leading-relaxed mb-6 max-w-[300px];
+}
+
+.service-list {
+  /* gap-2.5 = gap: 10px */
+  @apply flex flex-col gap-2.5;
+}
+
+.service-list-item {
+  /* gap-3 = gap: 12px, text-sm = font-size 14px */
+  @apply flex items-center text-white font-medium gap-3 text-sm;
+}
+
+.service-bullet {
+  /* w-1.5 h-1.5 = 6px, bg-white = цвет */
+  @apply rounded-full shrink-0 w-1.5 h-1.5 bg-white;
+}

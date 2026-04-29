@@ -1,0 +1,97 @@
+@reference "tailwindcss";
+
+/* === TESTIMONIALS (100% Tailwind CSS) === */
+.testi-section {
+  /* bg-[#151515] py-24 = background-color: #151515; padding-top/bottom 96px */
+  @apply relative overflow-hidden text-white bg-[#151515] py-24;
+}
+
+.testi-container {
+  @apply max-w-7xl mx-auto px-6 relative z-10;
+}
+
+/* заголовок секции */
+.testi-header {
+  /* mb-20 = margin-bottom: 80px */
+  @apply flex justify-between items-end mb-20;
+}
+
+.testi-arrows {
+  /* hidden md:flex gap-4 = media query, display, gap 16px */
+  @apply hidden md:flex gap-4;
+}
+
+/* сетка карточек */
+.testi-grid {
+  /* 
+    grid-cols-1 md:grid-cols-2 = media queries 
+    gap-12 lg:gap-20 = gap: 48px -> 80px 
+  */
+  @apply grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20;
+}
+
+/* сама карточка */
+.testi-card {
+  /* h-full = height: 100% */
+  @apply relative flex flex-col h-full;
+}
+
+.testi-text-box {
+  /* flex-1 gap-6 mb-8 = flex: 1, gap 24px, margin-bottom 32px */
+  @apply flex flex-1 gap-6 mb-8;
+}
+
+.testi-orange-line {
+  /* shrink-0 w-1 bg-[#eebb7c] = flex-shrink-0, width 4px, background */
+  @apply shrink-0 w-1 bg-[#eebb7c];
+}
+
+.testi-text {
+  /* text-lg md:text-[22px] leading-relaxed = 18px -> 22px, line-height 1.625 */
+  @apply text-white italic text-lg md:text-[22px] leading-relaxed;
+}
+
+/* декоративная линия под текстом */
+.testi-deco-line {
+  /* mb-8 = margin-bottom 32px */
+  @apply w-full mb-8;
+}
+
+.testi-deco-line img {
+  @apply w-full h-auto;
+}
+
+/* низ карточки: аватар + имя + иконка кавычек */
+.testi-bottom {
+  @apply flex items-center justify-between;
+}
+
+.testi-author-box {
+  /* gap-5 = gap 20px */
+  @apply flex items-center gap-5;
+}
+
+.testi-avatar {
+  /* w-[72px] h-[72px] grayscale = width/height 72px, filter: grayscale(100%) */
+  @apply rounded-full object-cover w-[72px] h-[72px] grayscale;
+}
+
+.testi-name-box {
+  /* gap-1 = gap 4px */
+  @apply flex flex-col gap-1;
+}
+
+.testi-name {
+  /* text-xl = font-size 20px */
+  @apply text-white font-bold text-xl;
+}
+
+.testi-role {
+  /* text-[11px] tracking-wider = 11px, letter-spacing 0.1em (примерно 0.05em, но tracking-wider лучше) */
+  @apply uppercase text-[#eebb7c] font-semibold text-[11px] tracking-[0.1em];
+}
+
+.testi-quote-icon {
+  /* w-10 h-10 opacity-80 = 40px, opacity */
+  @apply opacity-80 w-10 h-10;
+}

@@ -1,0 +1,121 @@
+@reference "tailwindcss";
+
+/* === TEAM (100% Tailwind CSS) === */
+.team-section {
+  /* bg-[#151515] py-24 = background-color: #151515; padding-top/bottom 96px */
+  @apply relative overflow-hidden text-white bg-[#151515] py-24;
+}
+
+.team-container {
+  @apply max-w-7xl mx-auto px-6 relative z-10;
+}
+
+.team-cross {
+  /* -bottom-12 -left-4 = bottom: -48px, left: -16px; opacity-100 */
+  @apply absolute pointer-events-none -bottom-12 -left-4 opacity-100 z-0;
+}
+
+.team-cross img {
+  /* w-20 h-20 = 80px */
+  @apply w-20 h-20;
+}
+
+/* верхняя часть секции */
+.team-header-flex {
+  /* flex-col lg:flex-row mb-16 gap-10 = flex-direction lg; margin-bottom 64px; gap 40px */
+  @apply flex flex-col lg:flex-row justify-between items-start relative mb-16 gap-10 z-10;
+}
+
+.team-title-box {
+  /* max-w-[576px] */
+  @apply max-w-[576px];
+}
+
+.team-desc-box {
+  /* max-w-[450px] mt-6 lg:mt-0 lg:ml-auto = margin-top lg; margin-left auto lg */
+  @apply flex flex-col items-end max-w-[450px] mt-6 lg:mt-0 lg:ml-auto;
+}
+
+.team-desc {
+  /* text-sm leading-[1.6] mb-8 w-full = font-size 14px; line-height 1.6; margin-bottom 32px */
+  @apply text-gray-400 text-left text-sm leading-[1.6] mb-8 w-full;
+}
+
+/* стрелки переключения */
+.team-arrows {
+  /* gap-4 = gap: 16px */
+  @apply flex gap-4;
+}
+
+.team-arrow-btn {
+  /* w-12 h-12 rounded-full bg-[#333] hover:bg-[#eebb7c] hover:text-black = 48px, border-radius, background, hover */
+  @apply flex items-center justify-center text-white w-12 h-12 rounded-full bg-[#333] transition-all duration-200 border-none cursor-pointer hover:bg-[#eebb7c] hover:text-black;
+}
+
+/* сетка карточек */
+.team-grid {
+  /* grid-cols-1 md:grid-cols-3 gap-8 mb-12 = 1fr -> 3fr; gap 32px; margin-bottom 48px */
+  @apply grid relative grid-cols-1 md:grid-cols-3 gap-8 mb-12 z-10;
+}
+
+.team-card {
+  @apply relative cursor-pointer;
+}
+
+.team-img-box {
+  /* aspect-[4/5] mb-6 = aspect-ratio; margin-bottom 24px */
+  @apply relative overflow-hidden w-full aspect-[4/5] mb-6;
+}
+
+.team-img {
+  /* duration-500 = 0.5s */
+  @apply w-full h-full object-cover transition-all duration-500;
+}
+
+.team-img-gray {
+  /* grayscale group-hover:grayscale-0 = filter grayscale; hover:0 */
+  @apply grayscale group-hover:grayscale-0;
+}
+
+.team-img-color {
+  /* grayscale-0 = 0% */
+  @apply grayscale-0;
+}
+
+/* соцсети на активной карточке */
+.team-socials {
+  /* right-0 bottom-6 px-3 py-4 gap-4 bg-[#eebb7c]/90 = margin, padding, gap, background */
+  @apply absolute flex flex-col right-0 bottom-6 bg-[#eebb7c]/90 px-3 py-4 gap-4;
+}
+
+.social-icon {
+  /* hover:text-black */
+  @apply text-white transition-colors duration-200 hover:text-black;
+}
+
+/* подписи */
+.team-name {
+  /* text-2xl mb-2 = font-size 24px; margin-bottom 8px */
+  @apply font-bold text-white text-2xl mb-2;
+}
+
+.team-role {
+  /* text-sm = font-size 14px */
+  @apply text-gray-500 text-sm;
+}
+
+/* пагинация точками */
+.team-pagination {
+  /* gap-3 = gap 12px */
+  @apply flex justify-center items-center relative gap-3 z-10;
+}
+
+.pag-dot-active {
+  /* w-6 h-1.5 border border-[#eebb7c] = width 24px; height 6px; border */
+  @apply rounded-full w-6 h-1.5 bg-transparent border border-[#eebb7c];
+}
+
+.pag-dot {
+  /* w-1.5 h-1.5 bg-gray-500 = width 6px; height 6px; background #6b7280 */
+  @apply rounded-full w-1.5 h-1.5 bg-gray-500;
+}

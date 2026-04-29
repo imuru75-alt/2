@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Глобальные стили (вместо Tailwind классов в body) */
+body {
+  background-color: #111;
+  color: white;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  overflow-x: hidden;
+  min-height: 100vh;
+}
